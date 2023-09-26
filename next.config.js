@@ -2,7 +2,7 @@
 const nextConfig = {
   compiler: {
     styledComponents: true,
-    images: { domains: ["images.unsplash.com"] },
+    images: { domains: ["images.unsplash.com", "www.google.com"] },
   },
   reactStrictMode: true,
   webpack(config) {
