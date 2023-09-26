@@ -11,3 +11,15 @@ export default async function handler(request, response) {
     return response.status(405).json({ message: "Method not allowed" });
   }
 }
+
+if (request.method === "POST") {
+  try {
+    const placeData = request.body;
+    await Places.create(placeData);
+
+    response.status(201).json({ status: "Place created" });
+  } catch (error) {
+    console.log("Error:", error);
+    response.status(404).json({ error: error.message });
+  }
+}
