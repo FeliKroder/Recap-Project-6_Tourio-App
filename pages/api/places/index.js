@@ -4,7 +4,7 @@ import Places from "@/db/models/Places";
 export default async function handler(request, response) {
   await dbConnect();
 
-  if (request.method === GET) {
+  if (request.method === "GET") {
     const place = await Places.find();
     return response.status(200).json(place);
   } else {
