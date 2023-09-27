@@ -2,7 +2,6 @@
 const nextConfig = {
   compiler: {
     styledComponents: true,
-    images: { domains: ["images.unsplash.com", "www.google.com"] },
   },
   reactStrictMode: true,
   webpack(config) {
@@ -15,13 +14,7 @@ const nextConfig = {
     return config;
   },
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-        port: "",
-      },
-    ],
+    domains: ["images.unsplash.com", "www.google.com", "unsplash.com"],
   },
 };
 
