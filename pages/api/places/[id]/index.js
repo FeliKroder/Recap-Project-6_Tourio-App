@@ -11,13 +11,15 @@ export default async function handler(request, response) {
 
   if (request.method === "GET") {
     const place = await Places.findById(id);
-
+    if (!place) {
+      response.status(404).json({ status: "Not found" });
+    }
     response.status(200).json(place);
   }
 
   if (request.method === "PUT") {
     const updatedPlace = request.body;
     await Places.findByIdAndUpdate(id, updatedPlace);
-    response.status(200).json("places updated");
+    response.status(200).json("Place updated");
   }
 }
